@@ -1,0 +1,10 @@
+<h1 class="main-header">Audio</h1>
+
+<iframe 
+	class="audio list-item" 
+	ng-repeat="audio in audioData | limitTo: trackLimit" 
+	width="100%" height="166" 
+	scrolling="no" 
+	frameborder="no" 
+	ng-src="{{trustSrc(audio)}}">
+</iframe>

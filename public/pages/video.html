@@ -1,0 +1,12 @@
+<h1 class="main-header">Video</h1>
+<ul class="video-list">
+	<div class="video-wrapper">
+		<iframe 
+			ng-repeat="video in videos" 
+			class="video list-item" 
+			frameborder="0" 
+			ng-src="{{trustSrc(video.media$group.media$content[0].url)}}" 
+			allowfullscreen>
+		</iframe>
+	</div>
+</ul>

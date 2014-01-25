@@ -1,0 +1,309 @@
+/*
+    * .less stylesheets for CREEP.com
+    * by Kimi Spencer
+    * kimispencer.com
+    * Jan. 09, 2014
+*/
+
+@import "default.less";
+@import "mixins.less";
+@import "variables.less";
+
+/* default desktop styles */
+.body-wrapper{
+	.page-header {
+		/*border: 1px dashed blue;*/
+		position: fixed;
+		z-index: 2;
+		background: white;
+		height: 100px;
+		width: 100%;
+
+		/* nav toggle control */
+		.nav-control {
+			/*border: 1px dashed red;*/
+			.transition(all 500ms ease);
+
+			/* hamburger butotn */
+			.hamburger-btn {
+				float: right;
+				margin: 20px;
+			}
+		}
+
+		/* logo */
+		.logo-container {
+			/*border: 1px dashed red;*/
+			position: fixed;
+			width: auto;
+			margin: 0 10px;
+			padding: 10px 0;
+			z-index: 1;
+			cursor: pointer;
+			#MainLogo {
+				max-width: @nav_width;
+				&:active {
+					.clickable();
+				}
+			}
+		}
+	}
+
+	.page-wrapper {
+		/*border: 1px dashed blue;*/
+		padding-top: 100px;
+		width: 100%;
+		.transition(all 500ms ease);
+		
+		/* main wrapper */
+		.main-wrapper {
+			/*border: 1px dashed red;*/
+			.flexbox();
+			.align-items(flex-start);			// vertical alignment
+			.justify-content(flex-start); 		// horizontal alignment
+
+			/* navigation */
+			.nav {
+				/*border: 1px dashed red;*/
+				/*padding: 40px 0;*/
+				position: fixed;
+				background: white;
+				opacity: 0.9;
+				z-index: 1;
+				width: @nav_width;
+				height: 100%;
+
+				.nav-list {
+					/*border: 1px dashed red;*/
+					padding: 20px;
+					.nav-item {
+						/*border: 1px dashed purple;*/
+						font-size: 10pt;
+						text-transform: uppercase;
+						padding: 22px 0;
+						cursor: pointer;
+						color: black;
+						&:active {
+							.clickable();
+						}
+						&:hover {
+							color: gray;
+						}
+					}
+				}
+			}
+			/* main content */
+			.main-content {
+				/*border: 1px dashed green;*/
+				.transition(all 500ms ease);
+				/*padding: 40px 0;*/
+				margin-left: @nav_width + 20px;
+				width: 100%;
+				height: 100%;
+				@media @phone_large {
+					margin-left: @nav_width / 2;
+				}
+				.main-header {
+					font-weight: 100;
+					padding: 20px 0;
+					text-transform: uppercase;
+					font-size: 300%;
+					letter-spacing: -4px;
+				}
+				/* generic list styles */
+				.list-item {
+					margin: 0 0 20px 0;
+					p {
+						margin: 0 0 10px 0;
+					}
+					.top {
+						font-size: 11pt;
+					}
+					.bottom {
+						text-indent: 50px;
+					}
+				}
+				/* VIDEO */
+				.video-list {
+					max-width: 640px;
+
+					.video-wrapper {
+						float: none;
+						clear: both;
+						width: 100%;
+						position: relative;
+						padding-bottom: 56.25%;
+						padding-top: 25px;
+						height: 0;
+						.video {
+							/*border: 1px dashed red;*/
+							/*position: absolute;*/
+						    /*top: 0;*/
+						    /*left: 0;*/
+						    width: 100%;
+						    height: 100%;							
+						}
+					}
+				}
+				/* CONTACT */
+				.contact-list {
+					.contact {
+						.title {
+							text-transform: uppercase;
+						}
+						.details-wrapper {
+							/*border: 1px dashed red;*/
+							padding-left: 20px;
+							.detail {
+							}
+						}
+					}
+				}
+
+				/* TOUR DATES */
+				.tour-list {
+					.tour {
+						.venue-city {
+						}
+						.date {
+						}
+					}
+				}
+				/* NEWS */
+				.news-list {
+					/*border: 1px dashed green;*/
+					padding: 0;
+					margin: 0;
+					list-style: none;
+					.flexbox();
+					.flex-flow();
+					.justify-content(space-around);
+
+					.news-tile {
+						border: 1px dashed lightgray;
+						position: relative;
+						width: 20%;
+						min-height: 200px;
+						margin: 1%;
+						cursor: pointer;
+						background: @tile_background;
+
+						line-height: 150px;
+						color: white;
+						font-weight: bold;
+						font-size: 2.5em;
+						text-align: center;
+						.transition(background-color .2s ease-in);
+						&:hover {
+							background: darken(@tile_background, 10%);
+						}
+						&:active {
+							.clickable();
+						}
+						@media @desktop_large {
+							width: 15%;
+						}
+						@media @desktop {
+							width: 20%;
+						}
+						@media @tablet {
+							width: 30%;
+						}
+						@media @phone_large {
+							width: 47%;
+						}
+						@media @phone_small {
+							width: 100%;
+						}
+
+						.news-logo {
+							position: absolute;
+							width: 100%;
+							height: 100%;
+							.flexbox();
+							.justify-content(center);
+							.align-items(center);
+
+							img {
+								width: 70%;
+								@media @phone_small {
+									width: 50%;
+								}
+							}
+						}
+					}
+				}
+				/* IMAGES */
+				.photo {
+					width: 100%;
+					display: inline-block;
+					vertical-align: middle;
+					color: transparent;
+					background-size: 100%;
+					background-position: 50% 50%;
+					background-repeat: no-repeat;
+					&#One {
+						background-image: url("/content/images/2014/Jan/one.jpg");
+					}
+					/*&#Two {
+						background-image: url("../images/two.jpg");
+					}
+					&#Three {
+						background-image: url("../images/three.jpg");
+					}
+					&#Four {
+						background-image: url("../images/four.jpg");
+					}
+					&#Five {
+						background-image: url("../images/five.jpg");
+					}*/
+					.inner {
+						padding-top: 63.35%; /* height/width of image */
+						display: block;
+						height: 0;
+					}
+				}
+			}
+		}
+
+		/* closed flyout nav */
+		&.closed-nav {
+			.transform(translateX(-@nav_width - @page_margin));
+			.nav {
+			}
+			.main-content {
+				.transform(translateX(@nav_width));
+				margin-left: 50px;
+
+				/* resize photos */
+				.photo-wrapper {
+					margin-left: -50px;
+					.photo {
+						width: calc(~'100% + 50px');
+					}
+				}
+			}
+		}
+	}
+}
+
+/* mobile phone styles */
+.body-wrapper.mobile {
+	.page-header {
+	}
+	.page-wrapper {
+		.nav {
+			.nav-list {
+				.nav-item {
+					/*border: 1px dashed red;*/
+					padding: 12px 0;
+				}
+			}
+		}
+		.main-content {
+			.main-header {
+				font-size: 0%; /* bit of a hack, but works to hide text -ks */
+			}
+		}
+	}
+}

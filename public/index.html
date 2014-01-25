@@ -1,0 +1,64 @@
+<!--
+    * CREEP.com
+    * by Kimi Spencer
+    * kimispencer.com
+    * Jan. 09, 2014
+-->
+
+<html ng-app="creep">
+	<head>
+		<link rel="stylesheet/less" type="text/css" href="less/styles.less" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+	</head>
+	
+	<body ng-controller="MainCtrl">
+
+		<section class="body-wrapper" ng-class="{'mobile': window_width < widePhone_width}">
+
+			<section class="page-header">
+				<!-- nav toggle control -->
+				<section class="nav-control">
+					<!-- <div class="hamburger-btn" ng-click="navClosed=!navClosed"><p class="bars">|||</p></div> -->
+					<div class="hamburger-btn" ng-click="toggleNav()"><p class="bars">|||</p></div>
+				</section>
+
+				<!-- logo -->
+				<section class="logo-container">
+					<a href="#"><img id="MainLogo" src="images/creep-logo.svg" /></a>
+				</section>
+			</section>
+
+			<section class="page-wrapper" ng-class="{'closed-nav': navClosed}">
+
+				<section class="main-wrapper">
+
+					<!-- navigation -->
+					<nav class="nav">
+						<ul class="nav-list">
+							<li class="nav-item" ng-click="go('audio')">Audio</li>
+							<li class="nav-item" ng-click="go('video')">Video</li>
+							<li class="nav-item" ng-click="go('images')">Images</li>
+							<li class="nav-item" ng-click="go('tour')">Tour</li>
+							<a href="http://www.merchdirect.com/creep" target="_blank"><li class="nav-item">Merch</li></a>
+							<li class="nav-item" ng-click="go('news')">News</li>
+							<li class="nav-item" ng-click="go('contact')">Contact</li>
+						</ul>
+					</nav><!-- /.nav -->
+
+					<!-- main content -->
+					<section class="main-content">
+						<!-- angular template, this is where content will be injected -->
+						<div ng-view></div>
+					</section><!-- /.main-content -->
+				
+				</section><!-- /.main-wrapper -->
+			</section><!-- /.page-wrapper -->
+		</section><!-- /.body-wrapper -->
+
+		<script src="js/less.js" type="text/javascript"></script>
+		<script src="js/angular-1.2.5-min.js"></script>
+		<script src="js/angular-route.min.js"></script>
+		<script src="js/creep.js" type="text/javascript"></script>
+		<script src="js/global.js" type="text/javascript"></script>
+	</body>
+</html>
