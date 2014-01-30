@@ -192,46 +192,7 @@ creep.controller('TourCtrl', function($scope, $rootScope, $http){
         });
 });
 
-creep.controller('NewsCtrl', function($scope, $rootScope, $http){
-    // testing using local db
-    // $scope.news = [
-    //     {
-    //         title: "CREEP Article Title lorem ipsum balh borsdfasdfasdfsd",
-    //         src: 'http://localhost:2403',
-    //         logo: '../images/test-logo.png'
-    //     },
-    //     {
-    //         title: "CREEP Article Title",
-    //         src: 'http://localhost:2403',
-    //         logo: '../images/test-logo.png'
-    //     },
-    //     {
-    //         title: "CREEP Article Title",
-    //         src: 'http://localhost:2403',
-    //         logo: '../images/test-logo.png'
-    //     },
-    //     {
-    //         title: "CREEP Article Title",
-    //         src: 'http://localhost:2403',
-    //         logo: '../images/test-logo.png'
-    //     },
-    //     {
-    //         title: "CREEP Article Title",
-    //         src: 'http://localhost:2403',
-    //         logo: '../images/test-logo.png'
-    //     },
-    //     {
-    //         title: "CREEP Article Title",
-    //         src: 'http://localhost:2403',
-    //         logo: '../images/test-logo.png'
-    //     }
-    // ]
-
-    // $scope.expandTile = function(src) {
-    //     console.log("open in new tab " + src)
-    // }
-
-
+creep.controller('NewsCtrl', function($scope, $rootScope, $http, $window){
     $scope.news = [];
     // Get all news data
     var url = '/news';
@@ -243,6 +204,10 @@ creep.controller('NewsCtrl', function($scope, $rootScope, $http){
         .error(function(err) {
             alert(err);
         });
+
+    $scope.goTo = function(src) {
+        $window.open(src);
+    }
 });
 
 creep.controller('ContactCtrl', function($scope, $rootScope, $http){

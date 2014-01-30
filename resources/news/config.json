@@ -16,6 +16,14 @@
 			"required": true,
 			"id": "logo",
 			"order": 1
+		},
+		"source": {
+			"name": "source",
+			"type": "string",
+			"typeLabel": "string",
+			"required": true,
+			"id": "source",
+			"order": 2
 		}
 	}
 }
