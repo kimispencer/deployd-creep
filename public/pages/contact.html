@@ -5,7 +5,7 @@
 		<p class="title top" ng-if="contactInfo[$index].title != contactInfo[$index-1].title">{{contact.title}}</p>
 		<section class="details-wrapper">
 			<p class="detail" ng-if="contact.details.name">{{contact.details.name}}</p>
-			<p class="detail" ng-if="contact.details.email"><a ng-href="mailto:{{detail.email}}" target="_blank">{{contact.details.email}}</a></p>
+			<p class="detail email" ng-if="contact.details.email"><a ng-href="mailto:{{detail.email}}" target="_blank">{{contact.details.email}}</a></p>
 			<p class="detail" ng-if="contact.details.phone">{{contact.details.phone}}</p>
 		</section>
 	</li>

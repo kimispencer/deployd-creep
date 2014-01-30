@@ -88,7 +88,7 @@
 							.clickable();
 						}
 						&:hover {
-							color: gray;
+							color: @link_hover_color;
 						}
 					}
 				}
@@ -156,6 +156,11 @@
 							/*border: 1px dashed red;*/
 							padding-left: 20px;
 							.detail {
+								&.email {
+									a { 
+										border-bottom: 1px dashed @link_hover_color; 
+									}
+								}
 							}
 						}
 					}
