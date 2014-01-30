@@ -1,0 +1,29 @@
+{
+	"type": "Collection",
+	"properties": {
+		"date": {
+			"name": "date",
+			"type": "string",
+			"typeLabel": "string",
+			"required": true,
+			"id": "date",
+			"order": 0
+		},
+		"venue": {
+			"name": "venue",
+			"type": "string",
+			"typeLabel": "string",
+			"required": true,
+			"id": "venue",
+			"order": 1
+		},
+		"city": {
+			"name": "city",
+			"type": "string",
+			"typeLabel": "string",
+			"required": true,
+			"id": "city",
+			"order": 2
+		}
+	}
+}
