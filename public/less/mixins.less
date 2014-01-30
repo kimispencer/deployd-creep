@@ -1,0 +1,99 @@
+/* on pseudo element active, click down visual */
+.clickable() {
+	position: relative;
+	top: 1px;
+}
+
+/* button */
+.button() {
+	cursor: pointer;
+	border-radius: 4px;
+	background: black;
+	border: none;
+	color: white;
+	width: auto;
+	height: @finger_height;
+	font-size: 10pt;
+	padding: 0 10px;
+}
+
+/* hamburger button */
+.hamburger-btn {
+	cursor: pointer;
+	.button();
+    .transform(rotate(90deg));
+	.bars {
+		font-size: 10pt;
+		padding: 12px 8px;
+	}
+}
+
+/*flex container*/
+.flexbox(@alignment: center) {
+	display: -webkit-flex;
+	display: flex;
+	-webkit-justify-content: @alignment;
+	justify-content: @alignment;
+	-webkit-align-items: @alignment;
+	align-items: @alignment;
+}
+
+/*flex-wrap*/
+.flex-flow(@flow: row wrap) {
+    -webkit-flex-flow: @flow;
+    -moz-flex-flow: @flow;
+    -ms-flex-flow: @flow;
+    flex-flow: @flow;
+}
+
+/*justify content*/
+.justify-content(@justify: flex-start) {
+    -webkit-justify-content: @justify;
+    -moz-justify-content: @justify;
+    -ms-justify-content: @justify;
+    justify-content: @justify;
+}
+
+/*align-content*/
+.align-content(@align: stretch) {
+    -webkit-align-content: @align;
+    -moz-align-content: @align;
+    -ms-align-content: @align;
+    align-content: @align;
+}
+
+/*align-items*/
+.align-items(@align: stretch) {
+    -webkit-align-items: @align;
+    -moz-align-items: @align;
+    -ms-align-items: @align;
+    align-items: @align;
+}
+
+/*flex item*/
+.flex(@grow: 0, @shrink: 1, @size: auto) {
+	-webkit-box-flex: @grow; // old
+	box-flex: @grow; // safari 6
+	-ms-flex: @grow @shrink @size;
+	-webkit-flex: @grow @shrink @size;
+	flex: @grow @shrink @size;
+}
+
+/* .transition(PROPERTY DURATION EASING); */
+.transition(@transition) {
+	-webkit-transition: @transition;
+	-moz-transition: @transition;
+	-ms-transition: @transition;
+	-o-transition: @transition;
+	transition: @transition;
+}
+
+/* .transform(TRANSLATION); */
+.transform(@transform) {
+	-webkit-transform: @transform;
+	-moz-transform: @transform;
+	-ms-transform: @transform;
+	-o-transform: @transform;
+	transform: @transform;
+}
+
