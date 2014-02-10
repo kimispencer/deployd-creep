@@ -167,9 +167,9 @@ creep.controller('VideoCtrl', function($scope, $rootScope, $sce, $http){
     var url = '';
     // load fewer videos on mobile devices
     if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
-        url = 'http://gdata.youtube.com/feeds/api/videos?author=officialcreep&max-results=5&v=2&alt=json';
+        url = 'http://gdata.youtube.com/feeds/api/videos?author=officialcreep&max-results=3&v=2&alt=json';
     } else {
-        url = 'http://gdata.youtube.com/feeds/api/videos?author=officialcreep&max-results=10&v=2&alt=json';
+        url = 'http://gdata.youtube.com/feeds/api/videos?author=officialcreep&max-results=5&v=2&alt=json';
     }
 
     $http.get(url)
