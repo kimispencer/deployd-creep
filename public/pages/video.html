@@ -2,16 +2,16 @@
 <p id="WatchMore"><a href="http://www.youtube.com/user/OFFICIALCREEP" target="_blank">Watch More...</a></p>
 <ul class="video-list">
 	<div class="video-wrapper">
-		<iframe class="video list-item" src="//www.youtube.com/embed/Jlnx7_nkggc?rel=0" frameborder="0" allowfullscreen></iframe>
-		<iframe class="video list-item" frameborder="0" src="//www.youtube.com/embed/{{video.media$group.yt$videoio}}?rel=0" allowfullscreen></iframe>
-
 		<iframe 
-			ng-repeat="video in videos" 
+			ng-repeat="url in urls"
 			class="video list-item" 
 			frameborder="0" 
-			src="{{trustSrc(video.media$group.media$content[0].url)}}" 
+			src="{{ trustSrc(url) }}" 
 			allowfullscreen>
-			<p>{{trustSrc(video.media$group.yt$videoio)}}</p>
 		</iframe>
+
+		<p ng-repeat="url in urls">
+			{{ url }}
+		</p>
 	</div>
 </ul>

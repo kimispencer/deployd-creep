@@ -165,12 +165,19 @@ creep.controller('VideoCtrl', function($scope, $rootScope, $sce, $http){
         return $sce.trustAsResourceUrl(src);
     }
 
-    var url = '';
-        url = 'http://gdata.youtube.com/feeds/api/videos?author=officialcreep&max-results=3&v=2&alt=json';
+    var url = 'http://gdata.youtube.com/feeds/api/videos?author=officialcreep&max-results=3&v=2&alt=json';
+
+    $scope.urls = [];
 
     $http.get(url)
         .success(function(data){
-            $scope.videos = data.feed.entry;
+            $scope.raw = data.feed.entry;
+            // get ids
+            for (i=0; i < $scope.raw.length; i++) {
+                $scope.id = $scope.raw[i].media$group.yt$videoid.$t;
+                $scope.urls.push("//www.youtube.com/embed/" + $scope.id + "?rel=0");
+                console.log($scope.urls);
+            }
         });
 });
 
