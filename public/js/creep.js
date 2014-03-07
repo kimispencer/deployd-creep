@@ -181,6 +181,7 @@ creep.controller('VideoCtrl', function($scope, $rootScope, $sce, $http){
         .success(function(data){
             $scope.videos = data.feed.entry;
             console.log($scope.videos)
+            console.log(trustSrc(video.media$group.media$content[0].url));
         });
 });
 
