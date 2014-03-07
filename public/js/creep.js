@@ -110,17 +110,16 @@ creep.config(function($routeProvider, $locationProvider) {
 creep.controller('MainCtrl', function($scope, $rootScope){
 });
 
-creep.controller('ImagesCtrl', function($scope, $rootScope){    
-    // $scope.photos = flickrPhotos.load({ tags: 'dogs' });
+creep.controller('ImagesCtrl', function($scope, $rootScope, $http){    
+    var set_id = '72157640063878584',
+        api_key = '10787874afc03da8009bba6493f415c8',
+        param = 'url_o',
+        url = 'http://api.flickr.com/services/rest/?method=flickr.photosets.getPhotos&api_key=' + api_key +'&photoset_id=' + set_id + '&extras=' + param + '&format=json&nojsoncallback=1';
 
-    // var set_id = '72157640063878584',
-    //     api_key = '10787874afc03da8009bba6493f415c8',
-    //     url = 'http://api.flickr.com/services/rest/?method=flickr.photosets.getPhotos&api_key=' + api_key +'&photoset_id=' + set_id + '&format=json&nojsoncallback=1';
-
-    // $http.get(url)
-    //     .success(function(data) {
-    //         console.log(data);
-    //     });
+    $http.get(url)
+        .success(function(data) {
+            console.log(data);
+        });
 
     $scope.imageData = [
     {
@@ -167,9 +166,9 @@ creep.controller('VideoCtrl', function($scope, $rootScope, $sce, $http){
     var url = '';
     // load fewer videos on mobile devices
     if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
-        url = 'http://gdata.youtube.com/feeds/api/videos?author=officialcreep&max-results=3&v=2&alt=json';
+        url = 'http://gdata.youtube.com/feeds/api/videos?author=officialcreep&max-results=1&v=2&alt=json';
     } else {
-        url = 'http://gdata.youtube.com/feeds/api/videos?author=officialcreep&max-results=5&v=2&alt=json';
+        url = 'http://gdata.youtube.com/feeds/api/videos?author=officialcreep&max-results=3&v=2&alt=json';
     }
 
     $http.get(url)
