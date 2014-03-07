@@ -20,14 +20,18 @@
 /* hamburger button */
 .hamburger-btn {
 	cursor: pointer;
-	.button();
-    .transform(rotate(90deg));
-    padding: 0px;
-	.bars {
-		font-size: 10pt;
-		padding: 12px 8px;
-	}
+    margin-top:2%; 
+    border-radius: 2px; 
+    &:before {
+	    border-bottom: 17px double black;
+	    border-top: 6px solid black;    
+	    content:"";
+	    height: 5px; 
+	    position: absolute; 
+	    width:30px; 
+    }
 }
+
 
 /*flex container*/
 .flexbox(@alignment: center) {
