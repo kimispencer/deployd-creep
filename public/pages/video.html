@@ -3,7 +3,7 @@
 <ul class="video-list">
 	<div class="video-wrapper">
 		<iframe class="video list-item" src="//www.youtube.com/embed/Jlnx7_nkggc?rel=0" frameborder="0" allowfullscreen></iframe>
-		<iframe class="video list-item" frameborder="0" src="http://www.youtube.com/v/vDErC8-MrUw?version=3&f=videos&app=youtube_gdata" allowfullscreen></iframe>
+		<iframe class="video list-item" frameborder="0" src="//www.youtube.com/embed/{{video.media$group.yt$videoio}}?rel=0" allowfullscreen></iframe>
 
 		<iframe 
 			ng-repeat="video in videos" 
@@ -11,7 +11,7 @@
 			frameborder="0" 
 			src="{{trustSrc(video.media$group.media$content[0].url)}}" 
 			allowfullscreen>
-			<p>{{trustSrc(video.media$group.media$content[0].url)}}</p>
+			<p>{{trustSrc(video.media$group.yt$videoio)}}</p>
 		</iframe>
 	</div>
 </ul>
