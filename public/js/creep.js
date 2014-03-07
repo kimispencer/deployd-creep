@@ -160,8 +160,6 @@ creep.controller('AudioCtrl', function($scope, $rootScope, $http, $sce){
 });
 
 creep.controller('VideoCtrl', function($scope, $rootScope, $sce, $http){
-    console.log('video ctrl loaded')
-
     // tell angular that the url is a trusted value
     $scope.trustSrc = function(src) {
         return $sce.trustAsResourceUrl(src);
@@ -170,18 +168,9 @@ creep.controller('VideoCtrl', function($scope, $rootScope, $sce, $http){
     var url = '';
         url = 'http://gdata.youtube.com/feeds/api/videos?author=officialcreep&max-results=3&v=2&alt=json';
 
-    // load fewer videos on mobile devices
-    // if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
-    //     url = 'http://gdata.youtube.com/feeds/api/videos?author=officialcreep&max-results=1&v=2&alt=json';
-    // } else {
-    //     url = 'http://gdata.youtube.com/feeds/api/videos?author=officialcreep&max-results=3&v=2&alt=json';
-    // }
-
     $http.get(url)
         .success(function(data){
             $scope.videos = data.feed.entry;
-            console.log($scope.videos)
-            console.log($scope.trustSrc(video.media$group.media$content[0].url));
         });
 });
 

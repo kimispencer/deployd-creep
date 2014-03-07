@@ -6,8 +6,9 @@
 			ng-repeat="video in videos" 
 			class="video list-item" 
 			frameborder="0" 
-			ng-src="{{trustSrc(video.media$group.media$content[0].url)}}" 
+			src="{{trustSrc(video.media$group.media$content[0].url)}}" 
 			allowfullscreen>
 		</iframe>
+		<iframe src="//www.youtube.com/embed/Jlnx7_nkggc?rel=0" frameborder="0" allowfullscreen></iframe>
 	</div>
 </ul>
