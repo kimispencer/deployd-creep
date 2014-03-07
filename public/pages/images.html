@@ -1,7 +1,8 @@
 <!-- IMAGES -->
 <h1 class="main-header">Images</h1>
-<section class="photo-wrapper" ng-repeat="image in imageData">
-	<span class="photo">
-		<span class="inner" style="background-image:url( {{ image }} );"></span>
-	</span>
+
+<section class="photo-wrapper">
+	<div class="photo" ng-repeat="image in imageData" style="background-image:url( {{ image }} );">
+		<span class="inner"></span>
+	</div>
 </section>
