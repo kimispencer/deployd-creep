@@ -166,12 +166,14 @@ creep.controller('VideoCtrl', function($scope, $rootScope, $sce, $http){
     }
 
     var url = '';
-    // load fewer videos on mobile devices
-    if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
-        url = 'http://gdata.youtube.com/feeds/api/videos?author=officialcreep&max-results=1&v=2&alt=json';
-    } else {
         url = 'http://gdata.youtube.com/feeds/api/videos?author=officialcreep&max-results=3&v=2&alt=json';
-    }
+
+    // load fewer videos on mobile devices
+    // if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+    //     url = 'http://gdata.youtube.com/feeds/api/videos?author=officialcreep&max-results=1&v=2&alt=json';
+    // } else {
+    //     url = 'http://gdata.youtube.com/feeds/api/videos?author=officialcreep&max-results=3&v=2&alt=json';
+    // }
 
     $http.get(url)
         .success(function(data){
