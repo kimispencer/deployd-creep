@@ -160,6 +160,8 @@ creep.controller('AudioCtrl', function($scope, $rootScope, $http, $sce){
 });
 
 creep.controller('VideoCtrl', function($scope, $rootScope, $sce, $http){
+    console.log('video ctrl loaded')
+
     // tell angular that the url is a trusted value
     $scope.trustSrc = function(src) {
         return $sce.trustAsResourceUrl(src);
@@ -178,6 +180,7 @@ creep.controller('VideoCtrl', function($scope, $rootScope, $sce, $http){
     $http.get(url)
         .success(function(data){
             $scope.videos = data.feed.entry;
+            console.log($scope.videos)
         });
 });
 
