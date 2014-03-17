@@ -1,10 +1,14 @@
 <h1 class="main-header">Audio</h1>
+<p id="HearMore"><a href="https://soundcloud.com/officialcreep" target="_blank">Hear More...</a></p>
 
-<iframe 
-	class="audio list-item" 
-	ng-repeat="audio in audioData | limitTo: trackLimit" 
-	width="100%" height="166" 
-	scrolling="no" 
-	frameborder="no" 
-	ng-src="{{trustSrc(audio)}}">
-</iframe>
+<ul class="audio-list">
+	<li ng-repeat="audio in audioData | limitTo: trackLimit">
+		<iframe 
+			class="audio list-item"  
+			width="100%" height="166" 
+			scrolling="no" 
+			frameborder="no" 
+			ng-src="{{trustSrc(audio)}}">
+		</iframe>
+	</li>
+</ul>
