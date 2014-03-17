@@ -15,24 +15,21 @@
 
 		<section class="body-wrapper" ng-class="{'mobile': window_width < widePhone_width}">
 
-			<section class="page-header">
+			<header class="page-header">
 				<!-- nav toggle control -->
 				<section class="nav-control">
 					<!-- <div class="hamburger-btn" ng-click="navClosed=!navClosed"><p class="bars">|||</p></div> -->
 					<!-- <div class="hamburger-btn" ng-click="toggleNav()"><p class="bars">|||</p></div> -->
 					<div class="hamburger-btn" ng-click="toggleNav()"></div>
 				</section>
-
 				<!-- logo -->
 				<section class="logo-container">
-					<a href="#"><img id="MainLogo" src="images/creep-logo.svg" /></a>
+					<a href="#"><img id="MainLogo" src="images/logo.svg" /></a>
 				</section>
-			</section>
+			</header>
 
 			<section class="page-wrapper" ng-class="{'closed-nav': navClosed}">
-
 				<section class="main-wrapper">
-
 					<!-- navigation -->
 					<nav class="nav">
 						<ul class="nav-list">
@@ -45,15 +42,18 @@
 							<li class="nav-item" ng-click="go('contact')">Contact</li>
 						</ul>
 					</nav><!-- /.nav -->
-
 					<!-- main content -->
 					<section class="main-content">
 						<!-- angular template, this is where content will be injected -->
 						<div ng-view></div>
 					</section><!-- /.main-content -->
-				
 				</section><!-- /.main-wrapper -->
 			</section><!-- /.page-wrapper -->
+
+			<footer class="page-footer">
+				<h1>FOOTER</h1>
+			</footer>
+
 		</section><!-- /.body-wrapper -->
 
 		<script src="js/less.js" type="text/javascript"></script>

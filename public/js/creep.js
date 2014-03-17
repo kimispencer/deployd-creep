@@ -111,7 +111,6 @@ creep.controller('MainCtrl', function($scope, $rootScope){
 });
 
 creep.controller('ImagesCtrl', function($scope, $rootScope, $http){  
-
     var set_id = '72157640063878584',
         api_key = '10787874afc03da8009bba6493f415c8',
         param = 'url_o',
@@ -127,7 +126,7 @@ creep.controller('ImagesCtrl', function($scope, $rootScope, $http){
         .error(function(err) {
             alert(err);
         });
-    console.log( $scope.imageData = []);
+    // console.log( $scope.imageData = []);
 });
 
 creep.controller('AudioCtrl', function($scope, $rootScope, $http, $sce){
