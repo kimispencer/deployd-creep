@@ -114,7 +114,7 @@ creep.controller('ImagesCtrl', function($scope, $rootScope, $http){
     var set_id = '72157640063878584',
         api_key = '10787874afc03da8009bba6493f415c8',
         param = 'url_o',
-        url = 'http://api.flickr.com/services/rest/?method=flickr.photosets.getPhotos&api_key=' + api_key +'&photoset_id=' + set_id + '&extras=' + param + '&format=json&nojsoncallback=1';
+        url = 'https://api.flickr.com/services/rest/?method=flickr.photosets.getPhotos&api_key=' + api_key +'&photoset_id=' + set_id + '&extras=' + param + '&format=json&nojsoncallback=1';
 
     $scope.imageData = [];
     $http.get(url)
