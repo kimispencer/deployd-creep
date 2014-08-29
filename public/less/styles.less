@@ -5,6 +5,12 @@
     * Jan. 09, 2014
 */
 
+/* 
+  Allow angular.js to be loaded in body, hiding cloaked elements until 
+  templates compile.  The !important is important given that there may be 
+  other selectors that are more specific or come later and might alter display.  
+ */
+
 /* referenced styles */
 @import "default.less";
 @import "mixins.less";
@@ -337,7 +343,7 @@ a.symbol:before {
 
 	.page-footer {
 		text-align: center;
-		height: 60px;
+		/*height: 100px;*/
 		position: fixed;
 		z-index: 1;
 		bottom: 0;
@@ -345,7 +351,8 @@ a.symbol:before {
 		background-color: white;
 		.flexbox();
 		.align-items(center);
-		.justify-content(center); 	
+		.justify-content(center); 
+		.flex-flow(column);	
 
 		.symbol {
 			font-size: 32pt;
@@ -358,6 +365,14 @@ a.symbol:before {
 				&:hover {
 					color: @link_hover_color;
 				}
+			}
+		}
+		.email-signup {
+			padding: 20px;
+			.flexbox();
+			.flex-flow(column);
+			label {
+				margin-bottom: 10px;
 			}
 		}
 	}

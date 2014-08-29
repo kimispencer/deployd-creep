@@ -168,8 +168,11 @@ creep.controller('VideoCtrl', function($scope, $rootScope, $sce, $http){
 
     $scope.urls = [];
     $http.get(api)
-        .success(function(data){
+        .success(function(data){            
             $scope.raw = data.feed.entry;
+
+            console.log(data.feed)
+            
             // get ids
             for (i=0; i < $scope.raw.length; i++) {
                 $scope.id = $scope.raw[i].media$group.yt$videoid.$t;
