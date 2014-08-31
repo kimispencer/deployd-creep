@@ -5,6 +5,7 @@
     * Jan. 09, 2014
 -->
 
+<!-- <html ng-app="creep" manifest="cache.appcache" type="text/cache-manifest"> -->
 <html ng-app="creep">
 	<head>
 		<link rel="stylesheet/less" type="text/css" href="less/styles.less" />
@@ -18,8 +19,6 @@
 			<header class="page-header">
 				<!-- nav toggle control -->
 				<section class="nav-control">
-					<!-- <div class="hamburger-btn" ng-click="navClosed=!navClosed"><p class="bars">|||</p></div> -->
-					<!-- <div class="hamburger-btn" ng-click="toggleNav()"><p class="bars">|||</p></div> -->
 					<div class="hamburger-btn" ng-click="toggleNav()"></div>
 				</section>
 				<!-- logo -->
@@ -43,28 +42,31 @@
 						</ul>
 					</nav><!-- /.nav -->
 					<!-- main content -->
-					<section class="main-content">
+					<section class="main-content" on-scroll>
 						<!-- angular template, this is where content will be injected -->
 						<div ng-view></div>
 					</section><!-- /.main-content -->
 				</section><!-- /.main-wrapper -->
 			</section><!-- /.page-wrapper -->
 
-			<footer class="page-footer">
-				<section>
-					<span class="symbol" id="Email"><a href="mailto:" target="_blank">circleemail</a></span>
-					<span class="symbol" id="Twitter"><a href="https://twitter.com/creepofficial" target="_blank">circletwitterbird</a></span>
-					<span class="symbol" id="Facebook"><a href="https://www.facebook.com/CREEPINTL" target="_blank">circlefacebook</a></span>
+			<footer class="page-footer" ng-mouseover="showFooter()" ng-click="hideFooter()" ng-class="{'closed-footer': footerClosed}">
+				<section class="social-icons">
 					<span class="symbol" id="MySpace"><a href="https://myspace.com/officialcreep" target="_blank">circlemyspace</a></span>
+					<span class="symbol" id="Facebook"><a href="https://www.facebook.com/CREEPINTL" target="_blank">circlefacebook</a></span>
+					<span class="symbol" id="Twitter"><a href="https://twitter.com/creepofficial" target="_blank">circletwitterbird</a></span>
 					<span class="symbol" id="Vimeo"><a href="http://vimeo.com/officialcreep" target="_blank">circlevimeo</a></span>
 					<span class="symbol" id="YouTube"><a href="http://www.youtube.com/user/OFFICIALCREEP" target="_blank">circleyoutube</a></span>
 					<span class="symbol" id="Soundcloud"><a href="https://soundcloud.com/officialcreep" target="_blank">circlesoundcloud</a></span>
 				</section>
 				<section>
 					<form class="email-signup">
-						<label>Signup</label>
+						<label>Newsletter Signup</label>
 						<input type="email" placeholder="Email"/>
 					</form>
+				</section>
+				<section class="signature">
+					<p>CREEP &#0169; 2014</p>
+					<p>Made by <a href="http://kimispencer.com">Kimi Spencer</a></p>
 				</section>
 			</footer>
 
@@ -74,7 +76,7 @@
 		<script src="js/angular-1.2.5-min.js"></script>
 		<script src="js/angular-route.min.js"></script>
 		<script src="js/creep.js" type="text/javascript"></script>
-		<script src="js/global.js" type="text/javascript"></script>
+		<script src="js/smooth-scroll.js" type="text/javascript"></script>
 		<script src="js/modernizr.js" type="text/javascript"></script>
 	</body>
 </html>

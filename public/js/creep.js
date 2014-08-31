@@ -27,6 +27,9 @@ creep.run(['$rootScope', '$window', '$location', function($rootScope, $window, $
         }
     };
 
+    // footer is open on load, then hides on scroll (reappears on hover)
+    $rootScope.footerClosed = false;
+
     // close nav initially on mobile devices
     $rootScope.navClosed = $rootScope.window_width < $rootScope.tablet_width;
 
@@ -40,10 +43,28 @@ creep.run(['$rootScope', '$window', '$location', function($rootScope, $window, $
         $rootScope.safeApply();
     });
 
+    // watch for scroll
+    angular.element($window).bind('scroll', function() {
+        var dsoctop=document.all? iebody.scrollTop : pageYOffset
+        console.log(dsoctop)
+        if(Math.abs(dsoctop) > 250) {
+            $rootScope.footerClosed = true;
+            $rootScope.safeApply();
+        };
+    });
+
     // toggle flyout nav
     $rootScope.toggleNav = function() {
         $rootScope.navClosed = !$rootScope.navClosed;
-    }
+    };
+
+    // show/hide footer
+    $rootScope.showFooter = function() {
+        $rootScope.footerClosed = false;
+    };
+    $rootScope.hideFooter = function() {
+        $rootScope.footerClosed = true;
+    };
 
     // go to page
     $rootScope.go = function (url) {
@@ -170,9 +191,7 @@ creep.controller('VideoCtrl', function($scope, $rootScope, $sce, $http){
     $http.get(api)
         .success(function(data){            
             $scope.raw = data.feed.entry;
-
-            console.log(data.feed)
-            
+            // console.log(data.feed)
             // get ids
             for (i=0; i < $scope.raw.length; i++) {
                 $scope.id = $scope.raw[i].media$group.yt$videoid.$t;
