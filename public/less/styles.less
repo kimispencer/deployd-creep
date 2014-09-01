@@ -142,6 +142,7 @@ a.symbol:before {
 					font-size: 24pt;
 					font-weight: 100;
 					line-height: 18pt;
+					margin-bottom: 20px;
 				}
 				/* generic list styles */
 				.list-item {
@@ -319,6 +320,7 @@ a.symbol:before {
 				/* AUDIO */
 				.audio-list {
 					margin-top: 25px;
+					margin-right: 20px;
 				}
 			}
 		}
@@ -328,7 +330,7 @@ a.symbol:before {
 			.transform(translateX(-@nav_width - @page_margin));
 			.main-content {
 				.transform(translateX(@nav_width));
-				margin-left: 50px;
+				margin-left: 35px;
 
 				/* resize photos */
 				.photo-wrapper {
@@ -422,7 +424,7 @@ a.symbol:before {
 		}
 		.main-content {
 			.main-header {
-				font-size: 0%; /* !!! bit of a hack, but works to hide text -ks */
+				display: none;
 			}
 		}
 	}
