@@ -19,3 +19,13 @@ a {
 		color: @link_hover_color;
 	}
 }
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak
+{
+    display: none;
+}
+
+.body-wrapper.ng-cloak  /*<-- This has higher specificity so it can display a splash screen*/
+{
+    display: block;
+}

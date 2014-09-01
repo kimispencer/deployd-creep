@@ -9,13 +9,19 @@ var creep = angular.module('creep', ['angularSmoothscroll', 'ngRoute']);
 
 // run our app
 creep.run(['$rootScope', '$window', '$location', function($rootScope, $window, $location) {
-  // dimensions
-  $rootScope.iphone_width = 320;
+    // wait for content to load
+    $rootScope.loaded = false;
+    // dimensions
+    $rootScope.iphone_width = 320;
     $rootScope.widePhone_width = 480;
-  $rootScope.tablet_width = 768;
+    $rootScope.tablet_width = 768;
     $rootScope.window_width = document.documentElement.clientWidth;
+    // footer is open on load, then hides on scroll (reappears on hover)
+    $rootScope.footerClosed = false;
+    // close nav initially on mobile devices
+    $rootScope.navClosed = $rootScope.window_width < $rootScope.tablet_width;
 
-  // similar to $scope.$apply(), but checks to see if a digest is in progress
+    // similar to $scope.$apply(), but checks to see if a digest is in progress
     $rootScope.safeApply = function(fn) {
         var phase = this.$root.$$phase;
         if(phase == '$apply' || phase == '$digest') {
@@ -27,12 +33,6 @@ creep.run(['$rootScope', '$window', '$location', function($rootScope, $window, $
         }
     };
 
-    // footer is open on load, then hides on scroll (reappears on hover)
-    $rootScope.footerClosed = false;
-
-    // close nav initially on mobile devices
-    $rootScope.navClosed = $rootScope.window_width < $rootScope.tablet_width;
-
     // watch window_width on resize
     angular.element($window).bind('resize', function() {
         if($rootScope.window_width === document.documentElement.clientWidth) return false;
@@ -43,28 +43,19 @@ creep.run(['$rootScope', '$window', '$location', function($rootScope, $window, $
         $rootScope.safeApply();
     });
 
-    // watch for scroll
+    // watch window for scroll
     angular.element($window).bind('scroll', function() {
         var dsoctop=document.all? iebody.scrollTop : pageYOffset
-        console.log(dsoctop)
-        if(Math.abs(dsoctop) > 250) {
+        if(Math.abs(dsoctop) > 200 && !$rootScope.footerClosed) {
             $rootScope.footerClosed = true;
             $rootScope.safeApply();
         };
     });
 
-    // toggle flyout nav
-    $rootScope.toggleNav = function() {
-        $rootScope.navClosed = !$rootScope.navClosed;
-    };
-
-    // show/hide footer
-    $rootScope.showFooter = function() {
-        $rootScope.footerClosed = false;
-    };
-    $rootScope.hideFooter = function() {
-        $rootScope.footerClosed = true;
-    };
+    // wait for content to load
+    $rootScope.$on('$viewContentLoaded', function(){
+        $rootScope.loaded = true;
+    });
 
     // go to page
     $rootScope.go = function (url) {
@@ -75,7 +66,18 @@ creep.run(['$rootScope', '$window', '$location', function($rootScope, $window, $
         // go to page
         $location.path(url);
     };
-
+    // toggle flyout nav
+    $rootScope.toggleNav = function() {
+        $rootScope.navClosed = !$rootScope.navClosed;
+    };
+    // show footer
+    $rootScope.showFooter = function() {
+        $rootScope.footerClosed = false;
+    };
+    // hide footer
+    $rootScope.hideFooter = function() {
+        $rootScope.footerClosed = true;
+    };
 }]);
 
 // configure our app

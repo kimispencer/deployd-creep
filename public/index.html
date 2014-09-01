@@ -10,12 +10,38 @@
 	<head>
 		<link rel="stylesheet/less" type="text/css" href="less/styles.less" />
 		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;	
+			}
+			[ng\:cloak], [ng-cloak], .ng-cloak {
+				display: none !important;
+			}
+			.loading-page {
+				background-color: white;
+				height: 100%;
+				width: 100%;
+				position: fixed;
+				z-index: 100;
+			}
+			.loading-msg {
+				width: 100px;
+				margin: auto;
+				position: relative;
+				top: 50%;
+			}
+		</style>
 	</head>
 	
 	<body ng-controller="MainCtrl">
 
-		<section class="body-wrapper" ng-class="{'mobile': window_width < widePhone_width}">
+		<section class="loading-page" ng-hide="loaded">
+			<h1 class="loading-msg">LOADING...</h1>
+		</section>
 
+		<section class="body-wrapper" ng-class="{'mobile': window_width < widePhone_width}" ng-show="loaded" ng-cloak>
 			<header class="page-header">
 				<!-- nav toggle control -->
 				<section class="nav-control">
@@ -62,6 +88,7 @@
 					<form class="email-signup">
 						<label>Newsletter Signup</label>
 						<input type="email" placeholder="Email"/>
+						<button type="submit">Submit</button>
 					</form>
 				</section>
 				<section class="signature">
