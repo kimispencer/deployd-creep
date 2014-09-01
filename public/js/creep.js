@@ -91,6 +91,11 @@ creep.run(['$rootScope', '$window', '$location', function($rootScope, $window, $
     $rootScope.hideFooter = function() {
         $rootScope.footerClosed = true;
     };
+
+    // open external link
+    $rootScope.openLink = function(link) {
+        $window.open(link);
+    };
 }]);
 
 // configure our app
@@ -151,7 +156,7 @@ creep.controller('MainCtrl', function($scope, $rootScope){
             wait.innerHTML = "";
         else 
             wait.innerHTML += ".";
-    }, 250);
+    }, 200);
 });
 
 creep.controller('ImagesCtrl', function($scope, $rootScope, $http){  
@@ -212,7 +217,7 @@ creep.controller('VideoCtrl', function($scope, $rootScope, $sce, $http){
 
     $scope.urls = [];
     $http.get(api)
-        .success(function(data){            
+        .success(function(data){     
             $scope.raw = data.feed.entry;
             // console.log(data.feed)
             // get ids

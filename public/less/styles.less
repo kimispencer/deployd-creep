@@ -47,10 +47,11 @@ a.symbol:before {
 /* default desktop styles */
 .body-wrapper{
 	.page-header {
+		.transition(all 750ms ease);
 		position: fixed;
 		z-index: 3;
 		background: white;
-		height: 100px; //142px;
+		height: @header_padding;
 		width: 100%;
 
 		/* nav toggle control */
@@ -68,15 +69,13 @@ a.symbol:before {
 
 		/* logo */
 		.logo-container {
-			/*border: 1px dashed red;*/
 			position: fixed;
 			width: auto;
-			margin: 5px 10px;
-			/*padding: 10px 0;*/
-			/*z-index: 2;*/
+			margin: 20px 10px 5px 10px;
 			cursor: pointer;
 			#MainLogo {
-				max-width: @nav_width;
+				/*.transition(all 750ms ease);*/
+				max-width: 125px;
 				&:active {
 					.clickable();
 				}
@@ -85,7 +84,7 @@ a.symbol:before {
 	}
 
 	.page-wrapper {
-		padding-top: 122px; //142px;
+		padding-top: @header_padding;
 		width: 100%;
 		.transition(all 500ms ease);
 		
@@ -97,13 +96,13 @@ a.symbol:before {
 
 			/* navigation */
 			.nav {
-				/*padding: 40px 0;*/
 				position: fixed;
 				background: white;
 				opacity: 0.9;
 				z-index: 2;
 				width: @nav_width;
 				height: 100%;
+				/*padding-top: 40px;*/
 
 				.nav-list {
 					padding: 0 20px 20px 20px;
@@ -119,6 +118,9 @@ a.symbol:before {
 						&:hover {
 							color: @link_hover_color;
 						}
+						&:nth-child(1) {
+							padding-top: 0;
+						}
 					}
 				}
 			}
@@ -132,11 +134,14 @@ a.symbol:before {
 				@media @phone_large {
 					margin-left: @nav_width / 2;
 				}
+				.view {
+					/*margin: 40px 0;*/
+				}
 				.main-header {
-					padding: 20px 0;
 					text-transform: uppercase;
 					font-size: 24pt;
 					font-weight: 100;
+					line-height: 18pt;
 				}
 				/* generic list styles */
 				.list-item {
@@ -239,15 +244,19 @@ a.symbol:before {
 						}
 						@media @desktop_large {
 							width: 15%;
+							/*width: 20%;*/
 						}
 						@media @desktop {
 							width: 20%;
+							/*width: 30%;*/
 						}
 						@media @tablet {
 							width: 30%;
+							/*width: 47%;*/
 						}
 						@media @phone_large {
-							width: 47%;
+							/*width: 47%;*/
+							width: 100%;
 						}
 						@media @phone_small {
 							width: 100%;
@@ -374,7 +383,7 @@ a.symbol:before {
 			.flex-flow(row);
 			/*.justify-content(space-between);*/
 			color: grey;
-			font-size: 10pt;
+			font-size: 9pt;
 			p {
 				margin: 0 10px;
 			}
@@ -395,9 +404,14 @@ a.symbol:before {
 
 /* mobile phone styles */
 .body-wrapper.mobile {
+	#MainLogo {
+		max-width: 100px !important;
+	}
 	.page-header {
+		height: @header_padding_mobile;
 	}
 	.page-wrapper {
+		padding-top: @header_padding_mobile;
 		.nav {
 			.nav-list {
 				.nav-item {

@@ -30,12 +30,12 @@
 				text-align: center;
 				position: relative;
 				top: 35%;
-				width: 360px;
+				max-width: 320px;
 				margin: auto;
 				font-size: 48pt;
 			}
 			#LoadingLogo {
-				width: 300px;
+				max-width: 200px;
 			}
 			.loading-dots {
 				width: 50px;
@@ -78,7 +78,7 @@
 							<li class="nav-item" ng-click="go('video')">Video</li>
 							<li class="nav-item" ng-click="go('images')">Images</li>
 							<li class="nav-item" ng-click="go('tour')">Tour</li>
-							<a href="http://creep.myshopify.com/"><li class="nav-item">Merch</li></a>
+							<li class="nav-item" ng-click="openLink('http://creep.myshopify.com/')">Merch</li>
 							<li class="nav-item" ng-click="go('news')">News</li>
 							<li class="nav-item" ng-click="go('contact')">Contact</li>
 						</ul>
@@ -86,7 +86,7 @@
 					<!-- main content -->
 					<section class="main-content" on-scroll>
 						<!-- angular template, this is where content will be injected -->
-						<div ng-view></div>
+						<div class="view" ng-view></div>
 					</section><!-- /.main-content -->
 				</section><!-- /.main-wrapper -->
 			</section><!-- /.page-wrapper -->
