@@ -14,12 +14,12 @@
 /* social media icons */
 @font-face {
     font-family: 'Mono Social Icons Font';
-    src: url('../images/fontfaces/MonoSocialIconsFont-1.10.eot');
-    src: url('../images/fontfaces/MonoSocialIconsFont-1.10.eot?#iefix') format('embedded-opentype'),
-         url('../images/fontfaces/MonoSocialIconsFont-1.10.woff') format('woff'),
-         url('../images/fontfaces/MonoSocialIconsFont-1.10.ttf') format('truetype'),
-         url('../images/fontfaces/MonoSocialIconsFont-1.10.svg#MonoSocialIconsFont') format('svg');
-    src: url('../images/fontfaces/MonoSocialIconsFont-1.10.ttf') format('truetype');
+    src: url('/images/fontfaces/MonoSocialIconsFont-1.10.eot');
+    src: url('/images/fontfaces/MonoSocialIconsFont-1.10.eot?#iefix') format('embedded-opentype'),
+         url('/images/fontfaces/MonoSocialIconsFont-1.10.woff') format('woff'),
+         url('/images/fontfaces/MonoSocialIconsFont-1.10.ttf') format('truetype'),
+         url('/images/fontfaces/MonoSocialIconsFont-1.10.svg#MonoSocialIconsFont') format('svg');
+    src: url('/images/fontfaces/MonoSocialIconsFont-1.10.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
@@ -50,7 +50,7 @@ a.symbol:before {
 		position: fixed;
 		z-index: 3;
 		background: white;
-		height: 100px;
+		height: 100px; //142px;
 		width: 100%;
 
 		/* nav toggle control */
@@ -85,7 +85,7 @@ a.symbol:before {
 	}
 
 	.page-wrapper {
-		padding-top: 100px;
+		padding-top: 122px; //142px;
 		width: 100%;
 		.transition(all 500ms ease);
 		
@@ -106,7 +106,7 @@ a.symbol:before {
 				height: 100%;
 
 				.nav-list {
-					padding: 20px;
+					padding: 0 20px 20px 20px;
 					.nav-item {
 						font-size: 10pt;
 						text-transform: uppercase;
@@ -133,11 +133,10 @@ a.symbol:before {
 					margin-left: @nav_width / 2;
 				}
 				.main-header {
-					font-weight: 100;
 					padding: 20px 0;
 					text-transform: uppercase;
-					font-size: 300%;
-					letter-spacing: -4px;
+					font-size: 24pt;
+					font-weight: 100;
 				}
 				/* generic list styles */
 				.list-item {
@@ -409,7 +408,7 @@ a.symbol:before {
 		}
 		.main-content {
 			.main-header {
-				font-size: 0%; /* bit of a hack, but works to hide text -ks */
+				font-size: 0%; /* !!! bit of a hack, but works to hide text -ks */
 			}
 		}
 	}
