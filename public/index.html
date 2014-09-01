@@ -27,18 +27,18 @@
 				z-index: 100;
 			}
 			.loading-msg {
-				width: 100px;
+				width: 260px;
 				margin: auto;
 				position: relative;
-				top: 50%;
+				top: 40%;
+				font-size: 48pt;
 			}
 		</style>
 	</head>
 	
 	<body ng-controller="MainCtrl">
-
 		<section class="loading-page" ng-hide="loaded">
-			<h1 class="loading-msg">LOADING...</h1>
+			<h1 class="loading-msg">CREEP<span id="wait">.</span></h1>
 		</section>
 
 		<section class="body-wrapper" ng-class="{'mobile': window_width < widePhone_width}" ng-show="loaded" ng-cloak>

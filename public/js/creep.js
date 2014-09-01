@@ -54,9 +54,14 @@ creep.run(['$rootScope', '$window', '$location', function($rootScope, $window, $
 
     // wait for content to load
     $rootScope.$on('$viewContentLoaded', function(){
-        $rootScope.loaded = true;
+        window.setTimeout($rootScope.showPage, 1000);
     });
 
+    // reveal page after data is loaded
+    $rootScope.showPage = function() {
+        $rootScope.loaded = true;
+        $rootScope.$apply();
+    }
     // go to page
     $rootScope.go = function (url) {
         // close flyout nav on page change
@@ -131,6 +136,14 @@ creep.config(function($routeProvider, $locationProvider) {
 
 // controllers
 creep.controller('MainCtrl', function($scope, $rootScope){
+    // !!! this really should be a directive -ks
+    var dots = window.setInterval( function() {
+        var wait = document.getElementById("wait");
+        if ( wait.innerHTML.length > 3 ) 
+            wait.innerHTML = "";
+        else 
+            wait.innerHTML += ".";
+    }, 250);
 });
 
 creep.controller('ImagesCtrl', function($scope, $rootScope, $http){  
