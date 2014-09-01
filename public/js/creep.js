@@ -55,7 +55,7 @@ creep.run(['$rootScope', '$window', '$location', function($rootScope, $window, $
 
     // wait for content to load
     $rootScope.$on('$viewContentLoaded', function(){
-        window.setTimeout($rootScope.showPage, 1000);
+        window.setTimeout($rootScope.showPage, 500);
     });
 
     // reveal page after data is loaded
@@ -71,6 +71,7 @@ creep.run(['$rootScope', '$window', '$location', function($rootScope, $window, $
     }
     // go to page
     $rootScope.go = function (url) {
+        $rootScope.footerClosed = true;
         // close flyout nav on page change
         if($rootScope.window_width < $rootScope.tablet_width) {
             $rootScope.navClosed = true;
@@ -167,7 +168,7 @@ creep.controller('ImagesCtrl', function($scope, $rootScope, $http){
             }
         })
         .error(function(err) {
-            alert(err);
+            console.log(err);
         });
     // console.log( $scope.imageData = []);
 });
@@ -190,7 +191,7 @@ creep.controller('AudioCtrl', function($scope, $rootScope, $http, $sce){
             }
         })
         .error(function(err) {
-            alert(err);
+            console.log(err);
         });
 
     // load fewer tracks on mobile devices

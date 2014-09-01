@@ -21,31 +21,42 @@
 			}
 			.loading-page {
 				background-color: white;
-				height: 100%;
-				width: 100%;
 				position: fixed;
 				z-index: 100;
+				height: 100%;
+				width: 100%;
 			}
 			.loading-msg {
+				text-align: center;
 				position: relative;
 				top: 35%;
 				width: 360px;
 				margin: auto;
 				font-size: 48pt;
 			}
-			.loading-msg img {
+			#LoadingLogo {
 				width: 300px;
+			}
+			.loading-dots {
+				width: 50px;
+				margin: auto;
+				text-align: left;
 			}
 		</style>
 	</head>
 	
 	<body ng-controller="MainCtrl">
+		<!-- loading page -->
 		<section class="loading-page" ng-hide="loaded">
 			<div class="loading-msg" >
-				<img src="images/logo.svg" /><span id="wait">.</span>
+				<img src="images/logo.svg" id="LoadingLogo" />
+				<section class="loading-dots">
+					<span id="wait">.</span>
+				</section>
 			</div>
 		</section>
 
+		<!-- CREEP app -->
 		<section class="body-wrapper fade" ng-class="{'mobile': window_width < widePhone_width, 'in': fade_in}" ng-show="loaded" ng-cloak>
 			<header class="page-header">
 				<!-- nav toggle control -->
@@ -67,7 +78,7 @@
 							<li class="nav-item" ng-click="go('video')">Video</li>
 							<li class="nav-item" ng-click="go('images')">Images</li>
 							<li class="nav-item" ng-click="go('tour')">Tour</li>
-							<a href="http://creep.myshopify.com/" target="_blank"><li class="nav-item">Merch</li></a>
+							<a href="http://creep.myshopify.com/"><li class="nav-item">Merch</li></a>
 							<li class="nav-item" ng-click="go('news')">News</li>
 							<li class="nav-item" ng-click="go('contact')">Contact</li>
 						</ul>
@@ -80,7 +91,7 @@
 				</section><!-- /.main-wrapper -->
 			</section><!-- /.page-wrapper -->
 
-			<footer class="page-footer" ng-mouseover="showFooter()" ng-click="hideFooter()" ng-class="{'closed-footer': footerClosed}">
+			<footer class="page-footer" ng-mouseover="showFooter()" ng-class="{'closed-footer': footerClosed}">
 				<section class="social-icons">
 					<span class="symbol" id="MySpace"><a href="https://myspace.com/officialcreep" target="_blank">circlemyspace</a></span>
 					<span class="symbol" id="Facebook"><a href="https://www.facebook.com/CREEPINTL" target="_blank">circlefacebook</a></span>
