@@ -11,6 +11,7 @@ var creep = angular.module('creep', ['angularSmoothscroll', 'ngRoute']);
 creep.run(['$rootScope', '$window', '$location', function($rootScope, $window, $location) {
     // wait for content to load
     $rootScope.loaded = false;
+    $rootScope.fade_in = false;
     // dimensions
     $rootScope.iphone_width = 320;
     $rootScope.widePhone_width = 480;
@@ -60,6 +61,12 @@ creep.run(['$rootScope', '$window', '$location', function($rootScope, $window, $
     // reveal page after data is loaded
     $rootScope.showPage = function() {
         $rootScope.loaded = true;
+        $rootScope.$apply();
+        window.setTimeout($rootScope.fadeIn, 0);
+    }
+    // fade in
+    $rootScope.fadeIn = function() {
+        $rootScope.fade_in = true;
         $rootScope.$apply();
     }
     // go to page
@@ -139,7 +146,7 @@ creep.controller('MainCtrl', function($scope, $rootScope){
     // !!! this really should be a directive -ks
     var dots = window.setInterval( function() {
         var wait = document.getElementById("wait");
-        if ( wait.innerHTML.length > 3 ) 
+        if (wait.innerHTML.length > 2 ) 
             wait.innerHTML = "";
         else 
             wait.innerHTML += ".";

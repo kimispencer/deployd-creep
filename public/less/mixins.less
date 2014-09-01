@@ -1,3 +1,12 @@
+.fade {
+	opacity: 0;
+	.transition(opacity 350ms ease-in);
+}
+
+.fade.in {
+	opacity: 1;
+}
+
 /* on pseudo element active, click down visual */
 .clickable() {
 	position: relative;
