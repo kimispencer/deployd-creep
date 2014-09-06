@@ -357,8 +357,13 @@ a.symbol:before {
 	.align-items(center);
 	.justify-content(center); 
 
+	@media @phone_large {
+		height: @footer_height/2;
+		padding-top: 40px;
+	}
+
 	.social-icon-container {
-		margin-bottom: 20px;
+		padding-bottom: 30px;
 	}
 
 	.email-signup {
@@ -392,6 +397,7 @@ a.symbol:before {
 		/*.justify-content(space-between);*/
 		color: grey;
 		font-size: 8pt;
+		padding-top: 20px;
 		p {
 			margin: 0 10px;
 		}
@@ -412,7 +418,7 @@ a.symbol:before {
 .social-icon {
 	font-size: 24pt;
 	@media @phone_large {
-		font-size: 24pt;
+		font-size: 18pt;
 	}
 	a {
 		color: @icon_gray;
