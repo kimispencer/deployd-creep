@@ -47,7 +47,7 @@ creep.run(['$rootScope', '$window', '$location', function($rootScope, $window, $
     // watch window for scroll
     angular.element($window).bind('scroll', function() {
         var dsoctop=document.all? iebody.scrollTop : pageYOffset
-        if(Math.abs(dsoctop) > 50 && !$rootScope.footerClosed) {
+        if(Math.abs(dsoctop) > 20 && !$rootScope.footerClosed) {
             $rootScope.footerClosed = true;
             $rootScope.safeApply();
         };
