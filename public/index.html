@@ -102,10 +102,14 @@
 				</section>
 				<section class="email-signup" ng-controller="FormCtrl">
 					<label>Newsletter Signup</label>
-					<form id="EmailSignup" ng-submit="processForm()">
+					<form id="EmailSignup" name="SignupForm" ng-submit="processForm()">
+						<input type="email" name="email" placeholder="Email" ng-model="data.email" required />
+						<input class="submit-btn" type="submit" value="" ng-disabled="SignupForm.$invalid" />
+					</form>
+<!-- 					<form id="EmailSignup" ng-submit="processForm()">
 						<input class="email-input" type="email" placeholder="Email" />
 						<input class="submit-btn" type="submit" value="" />
-					</form>
+					</form> -->
 				</section>
 				<section class="signature">
 					<p>CREEP &#0169; 2014</p>
