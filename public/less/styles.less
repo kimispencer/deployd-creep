@@ -356,10 +356,15 @@ a.symbol:before {
 	.flex-flow(column);	
 	.align-items(center);
 	.justify-content(center); 
+	&.closed-footer {
+		.transition(all 500ms ease);
+		.transform(translateY(@footer_height));
+		padding-top: 40px;
+		border: 1px dashed grey;
+	}
 
 	@media @phone_large {
 		height: @footer_height/2;
-		padding-top: 40px;
 	}
 
 	.social-icon-container {
@@ -408,10 +413,6 @@ a.symbol:before {
 				color: black;
 			}
 		}
-	}
-	&.closed-footer {
-		.transition(all 500ms ease);
-		.transform(translateY(@footer_height));
 	}
 }
 
