@@ -281,7 +281,7 @@ creep.controller('FormCtrl', function($scope, $rootScope, $http) {
     $scope.processForm =function() {
         $http({
             method: 'POST',
-            url: '/email.php',
+            url: 'email.php',
             data: $scope.data,
             headers : { 'Content-Type': 'application/x-www-form-urlencoded' }  // set the headers so angular passing info as form data (not request payload)
         })
