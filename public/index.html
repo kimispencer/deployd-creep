@@ -93,18 +93,18 @@
 
 			<footer class="page-footer" ng-mouseover="showFooter()" ng-class="{'closed-footer': footerClosed}">
 				<section class="social-icons">
-					<span class="symbol" id="MySpace"><a href="https://myspace.com/officialcreep" target="_blank">circlemyspace</a></span>
-					<span class="symbol" id="Facebook"><a href="https://www.facebook.com/CREEPINTL" target="_blank">circlefacebook</a></span>
-					<span class="symbol" id="Twitter"><a href="https://twitter.com/creepofficial" target="_blank">circletwitterbird</a></span>
-					<span class="symbol" id="Vimeo"><a href="http://vimeo.com/officialcreep" target="_blank">circlevimeo</a></span>
-					<span class="symbol" id="YouTube"><a href="http://www.youtube.com/user/OFFICIALCREEP" target="_blank">circleyoutube</a></span>
-					<span class="symbol" id="Soundcloud"><a href="https://soundcloud.com/officialcreep" target="_blank">circlesoundcloud</a></span>
+					<span class="social-icon" id="MySpace"><a href="https://myspace.com/officialcreep" target="_blank" class="symbol" title="circlemyspace"></a></span>
+					<span class="social-icon" id="Facebook"><a href="https://www.facebook.com/CREEPINTL" target="_blank" class="symbol" title="circlefacebook"></a></span>
+					<span class="social-icon" id="Twitter"><a href='https://twitter.com/creepofficial' class='symbol' target='_blank' title='circletwitterbird'></a></span>
+					<span class="social-icon" id="Vimeo"><a href="http://vimeo.com/officialcreep" target="_blank" class="symbol" title="circlevimeo"></a></span>
+					<span class="social-icon" id="YouTube"><a href="http://www.youtube.com/user/OFFICIALCREEP" target="_blank" class="symbol" title="circleyoutube"></a></span>
+					<span class="social-icon" id="Soundcloud"><a href="https://soundcloud.com/officialcreep" target="_blank" class="symbol" title="circlesoundcloud"></a></span>
 				</section>
-				<section class="email-signup">
-					<form>
-						<label>Newsletter Signup</label>
-						<input type="email" placeholder="Email"/>
-						<button type="submit">Submit</button>
+				<section class="email-signup" ng-controller="FormCtrl">
+					<label>Newsletter Signup</label>
+					<form id="EmailSignup" ng-submit="processForm()">
+						<input class="email-input" type="email" placeholder="Email" />
+						<input class="submit-btn" type="submit" value="" />
 					</form>
 				</section>
 				<section class="signature">
